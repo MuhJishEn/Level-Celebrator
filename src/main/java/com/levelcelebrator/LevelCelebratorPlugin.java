@@ -15,15 +15,11 @@ import net.runelite.client.plugins.PluginDescriptor;
 import java.util.*;
 
 @Slf4j
-@PluginDescriptor(
-		name = "Level Celebrator",
-		description = "Celebrate every new skill level like you deserve."
-)
+@PluginDescriptor(name = "Level Celebrator", description = "Celebrate every new skill level like you deserve.")
 public class LevelCelebratorPlugin extends Plugin
 {
 	@Inject
 	private Client client;
-
 	@Inject
 	private LevelCelebratorConfig config;
 
@@ -62,7 +58,8 @@ public class LevelCelebratorPlugin extends Plugin
 			if (leveledUp)
 			{
 				setLocalPlayerAnimations(skill.getName(), statChanged.getLevel());
-				if (config.showOtherPlayerAnims()) {
+				if (config.showOtherPlayerAnims())
+				{
 					setPublicCelebrationAnimations();
 				}
 			}

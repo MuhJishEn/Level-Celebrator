@@ -14,10 +14,7 @@ public interface LevelCelebratorConfig extends Config
 			description = "Hides the firework animation if checked when a new level is celebrated.",
 			position = 0
 	)
-	default boolean showFireworkAnim()
-	{
-		return true;
-	}
+	default boolean showFireworkAnim(){ return true; }
 
 	@ConfigItem(
 			keyName = "localOverheadText",
@@ -26,7 +23,7 @@ public interface LevelCelebratorConfig extends Config
 					"Use {skill.level} and {skill.name} to dynamically reference the skill level and name.",
 			position = 1
 	)
-	default String localOverheadText() { return "I did it! Finally level {skill.level} {skill.name}!!!"; }
+	default String localOverheadText(){ return "I did it! Finally level {skill.level} {skill.name}!!!"; }
 
 	enum EmoteOption
 	{
@@ -55,10 +52,7 @@ public interface LevelCelebratorConfig extends Config
 			description = "Select the emote your player performs when celebrating.",
 			position = 2
 	)
-	default EmoteOption localPlayerEmote()
-	{
-		return EmoteOption.JUMP_FOR_JOY;
-	}
+	default EmoteOption localPlayerEmote(){ return EmoteOption.JUMP_FOR_JOY; }
 
 	@ConfigItem(
 			keyName = "showOtherPlayerAnims",
@@ -66,8 +60,6 @@ public interface LevelCelebratorConfig extends Config
 			description = "Enables public player emote animations if checked.",
 			position = 3
 	)
-	default boolean showOtherPlayerAnims()
-	{
-		return true;
-	}
+	default boolean showOtherPlayerAnims(){ return true; }
+	
 }
