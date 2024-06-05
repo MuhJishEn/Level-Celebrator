@@ -11,7 +11,6 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-
 import java.util.*;
 
 @Slf4j
@@ -53,15 +52,20 @@ public class LevelCelebratorPlugin extends Plugin
 		Integer previous = previousSkillExpTable.put(skill, statChanged.getXp());
 		if (previous != null)
 		{
-			int levelBeforeExpGained = Experience.getLevelForXp(previous);
-			boolean leveledUp = levelBeforeExpGained < statChanged.getLevel();
-			if (leveledUp)
+			startAnimationsIfLeveledUp(skill.getName(), previous, statChanged.getLevel());
+		}
+	}
+
+	private void startAnimationsIfLeveledUp(String skillName, int previousXp, int currentLevel) {
+		int levelBeforeExpGained = Experience.getLevelForXp(previousXp);
+		boolean leveledUp = levelBeforeExpGained < currentLevel;
+
+		if (leveledUp)
+		{
+			setLocalPlayerAnimations(skillName, currentLevel);
+			if (config.showOtherPlayerAnims())
 			{
-				setLocalPlayerAnimations(skill.getName(), statChanged.getLevel());
-				if (config.showOtherPlayerAnims())
-				{
-					setPublicCelebrationAnimations();
-				}
+				setPublicCelebrationAnimations();
 			}
 		}
 	}
