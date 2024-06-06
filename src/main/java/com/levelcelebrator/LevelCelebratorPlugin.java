@@ -98,7 +98,8 @@ public class LevelCelebratorPlugin extends Plugin
 		String overheadText = config.localOverheadText()
 				.replace("{skill.level}", String.valueOf(level))
 				.replace("{skill.name}", skillName);
-		if (!overheadText.isBlank()) {
+		if (!overheadText.isBlank())
+		{
 			localPlayer.setOverheadText(overheadText);
 			localPlayer.setOverheadCycle(175);
 		}
@@ -152,5 +153,4 @@ public class LevelCelebratorPlugin extends Plugin
 	{
 		return configManager.getConfig(LevelCelebratorConfig.class);
 	}
-
 }

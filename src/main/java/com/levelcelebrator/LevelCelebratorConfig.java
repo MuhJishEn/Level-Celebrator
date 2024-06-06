@@ -7,7 +7,6 @@ import net.runelite.client.config.ConfigItem;
 @ConfigGroup("levelcelebrator")
 public interface LevelCelebratorConfig extends Config
 {
-
 	@ConfigItem(
 			keyName = "showFireworkAnim",
 			name = "Show Firework Animation",
@@ -61,5 +60,4 @@ public interface LevelCelebratorConfig extends Config
 			position = 3
 	)
 	default boolean showOtherPlayerAnims(){ return true; }
-	
 }
