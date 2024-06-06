@@ -56,7 +56,8 @@ public class LevelCelebratorPlugin extends Plugin
 		}
 	}
 
-	private void startAnimationsIfLeveledUp(String skillName, int previousXp, int currentLevel) {
+	private void startAnimationsIfLeveledUp(String skillName, int previousXp, int currentLevel)
+	{
 		int levelBeforeExpGained = Experience.getLevelForXp(previousXp);
 		boolean leveledUp = levelBeforeExpGained < currentLevel;
 
